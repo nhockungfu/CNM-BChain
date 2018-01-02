@@ -1,0 +1,22 @@
+.SignInComp{
+    width: 450px;
+    margin: 20px auto;
+}
+
+.SignInComp input{
+    width: 100%;
+    margin-left: 10px;
+}
+
+div.col-sm-10{
+    padding: 0;
+}
+
+label.col-sm-2.col-form-label{
+    padding: 0;
+}
+
+div.form-group.row{
+    margin: 0;
+    margin-bottom: 16px;
+}

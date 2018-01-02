@@ -1,0 +1,9 @@
+.SignUpComp{
+    width: 400px;
+    margin: 20px auto;
+}
+
+.SignUpComp input{
+    width: 100%;
+    margin-left: 10px;
+}

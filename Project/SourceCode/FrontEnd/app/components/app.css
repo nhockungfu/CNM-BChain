@@ -1,0 +1,41 @@
+a{
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #fff;
+    text-decoration: none;
+}
+
+.home-page a:hover{
+    color: red;
+    text-decoration: underline;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #004a7c;
+    overflow: hidden;
+}
+
+li{
+    float: left;
+    padding: 5px 15px;
+    margin: 20px auto;
+}
+
+ul:first-child{
+    color: #ffe115;
+    font-weight: bold;
+}
+
+.clear-float{
+    clear: left;
+}
+
+.active{
+    color: #2196f3;
+}
