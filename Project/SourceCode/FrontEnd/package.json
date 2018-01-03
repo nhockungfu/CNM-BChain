@@ -13,7 +13,6 @@
     "@types/react": "^16.0.31",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
-    "express-session": "^1.15.6",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",

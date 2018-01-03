@@ -1520,6 +1520,15 @@ function fetchExchangesOfUse(walletId) {
     };
 }
 
+function logOut() {
+    return function (dispatch) {
+        dispatch(toggleIsLogin());
+        dispatch(changeEmail(''));
+        dispatch(changeSurplus(-1));
+        dispatch(changeWalletId(''));
+    };
+}
+
 module.exports = {
     getAllExchangeList: getAllExchangeList,
     toggleIsLogin: toggleIsLogin,
@@ -1531,7 +1540,8 @@ module.exports = {
     signIn: signIn,
     fetchAllExchangeList: fetchAllExchangeList,
     exchangeToStatusReset: exchangeToStatusReset,
-    fetchExchangesOfUse: fetchExchangesOfUse
+    fetchExchangesOfUse: fetchExchangesOfUse,
+    logOut: logOut
 };
 
 /***/ }),
@@ -24392,6 +24402,10 @@ var _ToOtherWallet = __webpack_require__(136);
 
 var _ToOtherWallet2 = _interopRequireDefault(_ToOtherWallet);
 
+var _LogOut = __webpack_require__(154);
+
+var _LogOut2 = _interopRequireDefault(_LogOut);
+
 __webpack_require__(139);
 
 __webpack_require__(20);
@@ -24425,13 +24439,13 @@ var App = function (_React$Component) {
                 null,
                 _react2.default.createElement(
                     'div',
-                    null,
+                    { id: 'web-content' },
                     _react2.default.createElement(
                         'div',
                         { className: 'header-nav' },
                         _react2.default.createElement(
                             'ul',
-                            null,
+                            { id: 'ul-nav' },
                             _react2.default.createElement(
                                 'li',
                                 null,
@@ -24463,12 +24477,21 @@ var App = function (_React$Component) {
                                     { to: '/ToOtherWallet', activeClassName: 'active' },
                                     'To Other Wallet'
                                 )
+                            ),
+                            _react2.default.createElement(
+                                'li',
+                                { className: 'log-out' },
+                                _react2.default.createElement(
+                                    _reactRouterDom.NavLink,
+                                    { to: '/LogOut', activeClassName: 'no-active' },
+                                    'LogOut'
+                                )
                             )
                         )
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'clear-float' },
+                        { className: 'clear-float', id: 'nav-content' },
                         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _index2.default }),
                         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/SignUp', render: function render() {
                                 return !_this2.props.isLogined ? _react2.default.createElement(_SignUp2.default, null) : _react2.default.createElement(_reactRouterDom.Redirect, { to: '/' });
@@ -24479,7 +24502,8 @@ var App = function (_React$Component) {
                         _react2.default.createElement(_reactRouterDom.Route, { path: '/AllExchange', component: _index4.default }),
                         _react2.default.createElement(_reactRouterDom.Route, { path: '/ToOtherWallet', render: function render() {
                                 return _this2.props.isLogined ? _react2.default.createElement(_ToOtherWallet2.default, null) : _react2.default.createElement(_reactRouterDom.Redirect, { to: '/' });
-                            } })
+                            } }),
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/LogOut', component: _LogOut2.default })
                     )
                 )
             );
@@ -29020,7 +29044,7 @@ var SignIn = function (_React$Component) {
     return SignIn;
 }(_react2.default.Component);
 
-function mapStartToProps(state) {
+function mapStateToProps(state) {
     return {
         isSignIn: state.isSignIn
     };
@@ -29034,7 +29058,7 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-exports.default = (0, _reactRedux.connect)(mapStartToProps, mapDispatchToProps)(SignIn);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(SignIn);
 
 /***/ }),
 /* 124 */
@@ -29858,7 +29882,7 @@ exports = module.exports = __webpack_require__(8)(undefined);
 
 
 // module
-exports.push([module.i, "a{\r\n    color: #fff;\r\n    text-decoration: none;\r\n}\r\n\r\na:hover{\r\n    color: #fff;\r\n    text-decoration: none;\r\n}\r\n\r\n.home-page a:hover{\r\n    color: red;\r\n    text-decoration: underline;\r\n}\r\n\r\nul{\r\n    margin: 0;\r\n    padding: 0;\r\n    list-style: none;\r\n    background-color: #004a7c;\r\n    overflow: hidden;\r\n}\r\n\r\nli{\r\n    float: left;\r\n    padding: 5px 15px;\r\n    margin: 20px auto;\r\n}\r\n\r\nul:first-child{\r\n    color: #ffe115;\r\n    font-weight: bold;\r\n}\r\n\r\n.clear-float{\r\n    clear: left;\r\n}\r\n\r\n.active{\r\n    color: #2196f3;\r\n}\r\n", ""]);
+exports.push([module.i, "#web-content{\r\n    max-width: 1366px;\r\n    margin: 0 auto;\r\n    height: 100%;\r\n    max-height: 100%;\r\n}\r\n\r\nhtml, body, #root{\r\n    height: 100%;\r\n}\r\n\r\n#nav-content{\r\n    height: calc(100% - 74px);\r\n}\r\n\r\na{\r\n    color: #fff;\r\n    text-decoration: none;\r\n}\r\n\r\na:hover{\r\n    color: #fff;\r\n    text-decoration: none;\r\n}\r\n\r\n.home-page a:hover{\r\n    color: red;\r\n    text-decoration: underline;\r\n}\r\n\r\nul{\r\n    margin: 0;\r\n    padding: 0;\r\n    list-style: none;\r\n    background-color: #004a7c;\r\n    overflow: hidden;\r\n}\r\n\r\nli{\r\n    float: left;\r\n    padding: 5px 15px;\r\n    margin: 20px auto;\r\n}\r\n\r\nul:first-child{\r\n    color: #ffe115;\r\n    font-weight: bold;\r\n}\r\n\r\n.clear-float{\r\n    clear: left;\r\n}\r\n\r\n.active{\r\n    color: #2196f3;\r\n}\r\n\r\n#ul-nav{\r\n    position: relative;\r\n}\r\n\r\nli.log-out{\r\n    clear: left;\r\n    position: absolute;\r\n    right: 0px;\r\n    color: red !important;\r\n}\r\n\r\nli.log-out a{\r\n    padding-left: 10px;\r\n    padding-right: 10px;\r\n    padding-bottom: 5px;\r\n    background-color: rgb(189, 4, 4);\r\n    border-radius: 5px;\r\n}", ""]);
 
 // exports
 
@@ -30270,6 +30294,164 @@ var exchangeOfUser = function exchangeOfUser() {
 };
 
 module.exports = exchangeOfUser;
+
+/***/ }),
+/* 154 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(155);
+
+var _reactRedux = __webpack_require__(7);
+
+var _index = __webpack_require__(14);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var LogOut = function (_React$Component) {
+    _inherits(LogOut, _React$Component);
+
+    function LogOut() {
+        _classCallCheck(this, LogOut);
+
+        return _possibleConstructorReturn(this, (LogOut.__proto__ || Object.getPrototypeOf(LogOut)).apply(this, arguments));
+    }
+
+    _createClass(LogOut, [{
+        key: 'handleClickDongY',
+        value: function handleClickDongY() {
+            this.props.logOut();
+            this.props.history.push('/');
+        }
+    }, {
+        key: 'handleClickTroVe',
+        value: function handleClickTroVe() {
+            this.props.history.push('/');
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { id: 'log-out-comp' },
+                _react2.default.createElement('div', { className: 'hidden-margin-top' }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'msg-frame' },
+                    _react2.default.createElement(
+                        'p',
+                        { id: 'log-out-title-msg' },
+                        'B\u1EA1n c\xF3 mu\u1ED1n \u0111ang xu\u1EA5t kh\xF4ng?'
+                    ),
+                    _react2.default.createElement('hr', { id: 'log-out-hr-title' }),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'text-center log-out-btns' },
+                        _react2.default.createElement(
+                            'button',
+                            {
+                                type: 'button',
+                                id: 'log-out-btn-dong-y',
+                                className: 'btn btn-danger',
+                                onClick: this.handleClickDongY.bind(this)
+                            },
+                            '\u0110\u1ED3ng \xFD'
+                        ),
+                        _react2.default.createElement(
+                            'button',
+                            {
+                                type: 'button',
+                                id: 'log-out-btn-tro-ve',
+                                className: 'btn btn-success',
+                                onClick: this.handleClickTroVe.bind(this)
+                            },
+                            'Tr\u1EDF v\u1EC1'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return LogOut;
+}(_react2.default.Component);
+
+function mapStateToProps(state) {
+    return {};
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        logOut: function logOut() {
+            return dispatch((0, _index.logOut)());
+        }
+    };
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(LogOut);
+
+/***/ }),
+/* 155 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(156);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(9)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!./LogOut.css", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!./LogOut.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 156 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "#log-out-comp{\r\n    background-color: rgba(255, 0, 0, 0.733);\r\n    height: 100%;\r\n}\r\n\r\n.hidden-margin-top{\r\n    height: 40px;\r\n}\r\n\r\n.msg-frame{\r\n    margin: 0 auto;\r\n    width: 500px;\r\n    height: 200px;\r\n    background-color:yellow;\r\n    border-radius: 10px;\r\n}\r\n\r\n#log-out-title-msg{\r\n    font-weight: bold;\r\n    text-align: center;\r\n    line-height: 40px;\r\n    margin: 0;\r\n}\r\n\r\n#log-out-hr-title{\r\n    margin-top: 0;\r\n}\r\n\r\nbutton:hover{\r\n    cursor: pointer;\r\n}\r\n\r\n#log-out-btn-tro-ve{\r\n    margin-left: 30px;\r\n}\r\n\r\n.log-out-btns{\r\n    line-height: 100px;\r\n}", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

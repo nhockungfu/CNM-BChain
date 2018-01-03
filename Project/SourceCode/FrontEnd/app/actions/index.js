@@ -1,6 +1,7 @@
 import cst from '../constants/ActionTypes';
 import $ from '../libs/jquery-3.1.1.min.js';
 
+
 function getAllExchangeList(exchangeList){
     return {
         type: cst.GET_ALL_EXCHANGE_LIST,
@@ -239,6 +240,16 @@ function fetchExchangesOfUse(walletId){
     }
 }
 
+function logOut(){
+    return (dispatch) => {
+        dispatch(toggleIsLogin());
+        dispatch(changeEmail(''));
+        dispatch(changeSurplus(-1));
+        dispatch(changeWalletId(''));
+    }
+}
+
+
 module.exports = {
     getAllExchangeList,
     toggleIsLogin: toggleIsLogin,
@@ -250,5 +261,6 @@ module.exports = {
     signIn,
     fetchAllExchangeList,
     exchangeToStatusReset,
-    fetchExchangesOfUse
+    fetchExchangesOfUse,
+    logOut
 };

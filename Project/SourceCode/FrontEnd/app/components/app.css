@@ -1,3 +1,18 @@
+#web-content{
+    max-width: 1366px;
+    margin: 0 auto;
+    height: 100%;
+    max-height: 100%;
+}
+
+html, body, #root{
+    height: 100%;
+}
+
+#nav-content{
+    height: calc(100% - 74px);
+}
+
 a{
     color: #fff;
     text-decoration: none;
@@ -38,4 +53,23 @@ ul:first-child{
 
 .active{
     color: #2196f3;
+}
+
+#ul-nav{
+    position: relative;
+}
+
+li.log-out{
+    clear: left;
+    position: absolute;
+    right: 0px;
+    color: red !important;
+}
+
+li.log-out a{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    background-color: rgb(189, 4, 4);
+    border-radius: 5px;
 }

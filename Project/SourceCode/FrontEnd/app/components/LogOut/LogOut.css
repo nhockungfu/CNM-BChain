@@ -1,0 +1,39 @@
+#log-out-comp{
+    background-color: rgba(255, 0, 0, 0.733);
+    height: 100%;
+}
+
+.hidden-margin-top{
+    height: 40px;
+}
+
+.msg-frame{
+    margin: 0 auto;
+    width: 500px;
+    height: 200px;
+    background-color:yellow;
+    border-radius: 10px;
+}
+
+#log-out-title-msg{
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    margin: 0;
+}
+
+#log-out-hr-title{
+    margin-top: 0;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+#log-out-btn-tro-ve{
+    margin-left: 30px;
+}
+
+.log-out-btns{
+    line-height: 100px;
+}

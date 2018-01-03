@@ -38,7 +38,7 @@ class SignIn extends React.Component{
     }
 }
 
-function mapStartToProps(state){
+function mapStateToProps(state){
     return {
         isSignIn: state.isSignIn
     };
@@ -50,4 +50,4 @@ function mapDispatchToProps(dispatch){
     };
 }
 
-export default connect(mapStartToProps, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
