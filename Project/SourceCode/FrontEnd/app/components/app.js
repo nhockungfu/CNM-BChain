@@ -27,9 +27,12 @@ class App extends React.Component {
                             <li><NavLink exact to="/" activeClassName="active">Home</NavLink></li>
                             <li><NavLink to="/AllExchange" activeClassName="active">All Exchange</NavLink></li>
                             <li><NavLink to="/ToOtherWallet" activeClassName="active">To Other Wallet</NavLink></li>
-                            <li className="log-out">
-                                <NavLink to="/LogOut" activeClassName="no-active">LogOut</NavLink>
-                            </li>
+                            {
+                                this.props.isLogined && 
+                                <li className="log-out">
+                                    <NavLink to="/LogOut" activeClassName="no-active">LogOut</NavLink>
+                                </li>
+                            }
                         </ul>
                     </div>
                     <div className="clear-float" id="nav-content">

@@ -24478,7 +24478,7 @@ var App = function (_React$Component) {
                                     'To Other Wallet'
                                 )
                             ),
-                            _react2.default.createElement(
+                            this.props.isLogined && _react2.default.createElement(
                                 'li',
                                 { className: 'log-out' },
                                 _react2.default.createElement(
